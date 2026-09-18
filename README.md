@@ -1,90 +1,106 @@
-# Ubuntu Coffee - 123 Govan Mbeki Avenue, Gqeberha
+# Ubuntu Coffee - 123 Govan Mbeki Ave
 
-**Live:** https://asive70.github.io/Ubuntu_Coffee/
-**Founded:** March 2023 by Thando Mbeki & Liam Jacobs (NMU students)
-**Address:** 123 Govan Mbeki Avenue, Central Gqeberha 6001
-**Hosting:** Xneelo R199/mo | Year 1 Total R19038 | IG @ubuntucoffeepe
+Live: https://asive70.github.io/Ubuntu_Coffee/
+Address: 123 Govan Mbeki Ave, Central Gqeberha
 
-## Project Description
-Ubuntu Coffee means "I am because we are" - community coffee shop with 45 seats (started 20). Serves house blend and supplies beans to 5 local cafes.
+## Pages: 8 Pages
+index.html, menu.html, services.html, book.html, about.html, blog.html, contact.html, enquiry.html
 
-## Pages Built
-- index.html - Full image hero, nav on top of image, Book Now
-- pages/menu.html - 8 products (4 beans + 4 drinks) with real images
-- pages/services.html - Catering & Roasting
-- pages/book.html - Booking form
-- pages/about.html - Founders story
-- pages/blog.html - Blog posts
-- pages/contact.html - Map + form + 123 Govan Mbeki address
-- pages/enquiry.html - Enquiry form
-- favicon.png - Tab icon (coffee bean + ubuntu dots)
+## Wireframes - All 8 Pages
 
-## Folder Structure
-/Ubuntu_Coffee
-  index.html
-  README.md
-  favicon.png
-  css/styles.css
-  js/script.js
-  assets/images/
-    favicon.png
-    hero.jpg
-    menu/ (8 JPGs no spaces)
-  pages/
-    menu.html, services.html, book.html, about.html, blog.html, contact.html, enquiry.html
-
-## Wireframes (Low Fidelity)
-
-### 1. HOME - index.html
-+-------------------------------------------+
-| NAV: Home | Menu | Services | Book | About | Blog | Contact | Enquiry |
-|-------------------------------------------|
-| |
-| [ FULL SCREEN IMAGE - Coffee Shop ] |
-| |
+### 1. HOME
+```
++----------------------------------+
+| NAV: Logo | Home Menu Services...|
+| [ FULL IMAGE HERO ] |
 | Ubuntu Coffee |
-| I am because we are. Sip coffee... |
-| [ Book Now Button ] |
-| |
-+-------------------------------------------+
-| FOOTER: 123 Govan Mbeki | R19038 Year 1 |
-+-------------------------------------------+
+| I am because we are |
+| [ Book Now ] |
+| 3 COLS: About | Menu | Visit |
+| FOOTER: 123 Govan Mbeki |
++----------------------------------+
+```
 
-### 2. MENU - pages/menu.html
-+-------------------------------------------+
-| NAV | Title: Our Menu |
-|-------------------------------------------|
+### 2. MENU - 8 Products
+```
++----------------------------------+
+| NAV | Our Menu |
 | [IMG] [IMG] [IMG] [IMG] |
-| House Blend Ethiopian Kenyan Decaf |
+| House Ethiop Kenyan Decaf |
 | R95 R120 R110 R105 |
-| [Add] [Add] [Add] [Add] |
-| |
 | [IMG] [IMG] [IMG] [IMG] |
-| Cold Brew Cappuccino Latte Americano |
+| ColdB Cappu Latte Ameri |
 | R45 R38 R42 R32 |
-| [Add] [Add] [Add] [Add] |
-+-------------------------------------------+
 | FOOTER |
-+-------------------------------------------+
++----------------------------------+
+```
 
-### 3. BOOK / CONTACT - pages/book.html
-+-------------------------------------------+
-| NAV |
-|-------------------------------------------|
-| LEFT SIDE | RIGHT SIDE |
-| Map 123 Govan | Form: |
-| Address: 123 | Name [____] |
-| Hours: 7am-6pm | Email [____] |
-| Phone | Date [____] |
-| | People [____] |
-| | Message [____] |
-| | [Submit Button] |
-+-------------------------------------------+
+### 3. SERVICES
+```
++----------------------------------+
+| NAV | Our Services |
+| [Catering Image] Catering Events |
+| [Roasting Image] Fresh Roasting |
+| Supplies 5 cafes |
 | FOOTER |
-+-------------------------------------------+
++----------------------------------+
+```
 
-## Tech Used
-- HTML5, CSS3 Grid/Flex, JS
-- Font Awesome 7.3.1
-- Favicon: assets/images/favicon.png
-- Responsive: Desktop 4 cols, Tablet 2 cols, Mobile 1 col
+### 4. BOOK
+```
++----------------------------------+
+| NAV | Book a Table |
+| LEFT: Map 123 Govan Mbeki |
+| RIGHT: Form Name Email Date |
+| |
+| FOOTER |
+[Submit]
++----------------------------------+
+```
+
+### 5. ABOUT
+```
++----------------------------------+
+| NAV | About Us |
+| [Founders Image] Thando & Liam |
+| Founded March 2023 NMU Students |
+| 20 seats to 45 seats Ubuntu |
+| FOOTER |
++----------------------------------+
+```
+
+### 6. BLOG
+```
++----------------------------------+
+| NAV | Blog |
+| Ethiopian Journey |
+| Cold Brew Guide |
+| Local Farmers |
+| FOOTER |
+[Post1][Post2][Post3]
++----------------------------------+
+```
+
+### 7. CONTACT
+```
++----------------------------------+
+| NAV | Contact Us |
+| LEFT: Map + 123 Govan Mbeki Ave |
+| RIGHT: Form Name Email Message |
+| |
+| FOOTER |
+[Send]
++----------------------------------+
+```
+
+### 8. ENQUIRY
+```
++----------------------------------+
+| NAV | Enquiry |
+| Type: Catering Wholesale Event |
+| Name Email Phone |
+| Message [________] |
+| [Submit Enquiry] |
+| FOOTER 123 Govan Mbeki R19038 |
++----------------------------------+
+```
