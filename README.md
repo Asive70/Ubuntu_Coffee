@@ -1,4 +1,4 @@
-# Ubuntu Coffee - 123 Govan Mbeki Ave
+# Ubuntu Coffee 
 
 Live: https://asive70.github.io/Ubuntu_Coffee/
 Address: 123 Govan Mbeki Ave, Central Gqeberha
@@ -6,7 +6,7 @@ Address: 123 Govan Mbeki Ave, Central Gqeberha
 ## Pages: 8 Pages
 index.html, menu.html, services.html, book.html, about.html, blog.html, contact.html, enquiry.html
 
-## Wireframes - All 8 Pages
+## Wireframes - 8 Pages
 
 ### 1. HOME
 ```
@@ -104,3 +104,25 @@ index.html, menu.html, services.html, book.html, about.html, blog.html, contact.
 | FOOTER 123 Govan Mbeki R19038 |
 +----------------------------------+
 ```
+
+## Changelog
+
+### [1.3.0] - 2026-09-18 - Final Submission Ready
+**Added:**
+- 8 Pages complete, 8 products, favicon in root and assets/images/favicon.png, full image hero nav on top of image, Google Maps pin at 123 Govan Mbeki, booking form validation, blog 3 posts,  responsive 
+**Fixed:**
+- Fixed nav not on top of image to position absolute transparent, fixed images with spaces renamed to house-blend.jpg etc, fixed favicon not showing, fixed menu grid mobile 1 col, fixed form validation required
+**Changed:**
+- Changed menu from 4 to 8 product
+
+### [1.2.0] - 2026-09-15 - Content Added
+**Added:** Services page catering/roasting supplies 5 cafes, About page Thando & Liam NMU March 2023 20 to 45 seats, Contact page map+form
+**Fixed:** Broken links to relative ../index.html, Font Awesome 7.3.1 CDN
+
+### [1.1.0] - 2026-09-11 - Structure Built
+**Added:** Folder structure pages/ css/styles.css js/script.js assets/images/menu/ 8 JPGs, Home hero Book Now button, CSS brown #5D4037 cream #FFF8E1, GitHub Pages live
+**Fixed:** Repo name to Ubuntu_Coffee, images moved to assets/images/
+
+### [1.0.0] - 2026-09-05 - Initial
+**Added:** Initial index.html, idea Ubuntu I am because we are community shop, location 123 Govan Mbeki Ave Central Gqeberha 6001, founded March 2023 Thando & Liam NMU
+**Notes:** Lecturer feedback needed wireframes in README, 8 pages, real address, favicon, full image hero, no spaces in image names
