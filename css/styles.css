@@ -404,7 +404,7 @@ footer,
 .full-image-hero {
     width: 100%;
     height: 100vh;
-    background-image: url('../Assets/Images/ubuntu_coffee.jpeg');
+    background-image: url('../assets/images/ubuntu_coffee.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
