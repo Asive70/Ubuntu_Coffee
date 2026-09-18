@@ -2,34 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ubuntu Coffee - Services</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Ubuntu Coffee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Ubuntu Coffee</h1>
         <nav>
-            <a href="../index.html">Home</a>
-            <a href="./menu.html">Menu</a>
-            <a href="./services.html">Services</a>
-            <a href="./book.html">Book</a>
-            <a href="./about.html">About</a>
-            <a href="./blog.html">Blog</a>
-            <a href="./contact.html">Contact</a>
-            <a href="./enquiry.html">Enquiry</a>
+            <div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu_Coffee</div>
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./menu.html"><i class="fas fa-coffee"></i> Menu</a></li>
+                <li><a href="./services.html" class="active"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="./book.html"><i class="fas fa-calendar-check"></i> Book</a></li>
+                <li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="./blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="./contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                <li><a href="./enquiry.html"><i class="fas fa-envelope"></i> Enquiry</a></li>
+            </ul>
         </nav>
     </header>
-
+    <section class="hero hero-small"><h1><i class="fas fa-concierge-bell"></i> Our Services</h1></section>
     <main>
-        <h2>Our Services</h2>
-        <ul>
-            <li><h3>Corporate Catering</h3><p>Book us for meetings and office coffee setups.</p></li>
-            <li><h3>Events</h3><p>Weddings, workshops, and community gatherings.</p></li>
-            <li><h3>Barista Training</h3><p>Learn to brew like a pro with our team.</p></li>
-        </ul>
+        <div class="services-grid">
+            <article class="service-box"><i class="fas fa-truck"></i><h3>Same-Day Delivery</h3><p> Central, Walmer, Summerstrand, Newton Park. Free over R300.</p></article>
+            <article class="service-box"><i class="fas fa-glass-cheers"></i><h3>Catering</h3><p>Wedding & corporate 50-180 guests From R2500.</p></article>
+            <article class="service-box"><i class="fas fa-chalkboard-teacher"></i><h3>Barista Training</h3><p>4-week course youth R1500.</p></article>
+            <article class="service-box"><i class="fas fa-users"></i><h3>Workshops</h3><p>Every Saturday 10am R250 includes beans.</p></article>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2026 Ubuntu Coffee</p>
-    </footer>
+    <footer><p>&copy; 2026 Ubuntu Coffee</p></footer>
+    <script src="../script.js"></script>
 </body>
 </html>

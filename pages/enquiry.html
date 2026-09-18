@@ -2,35 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ubuntu Coffee | Enquiry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquiry - Ubuntu_Coffee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <header>
-        <h1>Ubuntu Coffee</h1>
         <nav>
-            <a href="../index.html">Home</a>
-            <a href="./menu.html">Menu</a>
-            <a href="./services.html">Services</a>
-            <a href="./book.html">Book</a>
-            <a href="./about.html">About</a>
-            <a href="./blog.html">Blog</a>
-            <a href="contact.html">Contact</a>
-            <a href="./enquiry.html">Enquiry</a>
+            <div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu Coffee</div>
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./menu.html"><i class="fas fa-coffee"></i> Menu</a></li>
+                <li><a href="./services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="./book.html"><i class="fas fa-calendar-check"></i> Book</a></li>
+                <li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="./blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="./contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                <li><a href="./enquiry.html" class="active"><i class="fas fa-envelope"></i> Enquiry</a></li>
+            </ul>
         </nav>
     </header>
-
+    <section class="hero hero-small"><h1><i class="fas fa-envelope-open-text"></i> Enquiry</h1></section>
     <main>
-        <h2>Make an Enquiry</h2>
-        <form>
-            <input type="text" placeholder="Name"><br><br>
-            <input type="email" placeholder="Email"><br><br>
-            <textarea placeholder="Your Message" rows="5"></textarea><br><br>
-            <button type="submit">Send</button>
-        </form>
+        <div class="form-container">
+            <h2><i class="fas fa-question-circle"></i> Send Enquiry</h2>
+            <form id="enquiryForm">
+                <div class="form-group"><label><i class="fas fa-user"></i> Name:</label><input type="text" required></div>
+                <div class="form-group"><label><i class="fas fa-list"></i> Type:</label><select><option>Wholesale</option><option>Training</option><option>Office Supply</option><option>Catering</option></select></div>
+                <div class="form-group"><label><i class="fas fa-envelope"></i> Email:</label><input type="email" required></div>
+                <div class="form-group"><label><i class="fas fa-comment-dots"></i> Message:</label><textarea required></textarea></div>
+                <button type="submit" class="btn btn-full"><i class="fas fa-paper-plane"></i> Send Enquiry</button>
+            </form>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2026 Ubuntu Coffee</p>
-    </footer>
+    <footer><p>&copy; 2026 Ubuntu_Coffee</p></footer>
+    <script src="../script.js"></script>
 </body>
 </html>

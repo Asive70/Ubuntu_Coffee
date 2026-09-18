@@ -1,0 +1,512 @@
+/* Ubuntu_Coffee-2026 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg: #FFFBF5;
+    --white: #FFFFFF;
+    --brown: #2B1E16;
+    --gold: #C89A5C;
+    --gold-light: #F9EEDC;
+    --text: #2B1E16;
+    --text-light: #8A7A6D;
+    --border: #F0E6D8;
+    --shadow: 0 10px 30px rgba(43,30,22,0.06);
+    --radius: 24px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+}
+
+/* =============================================
+   FAVORITE HERO - Full image
+   ============================================= */
+.hero-full {
+    position: relative;
+    text-align: center;
+    color: white;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+.hero-full-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.hero-full-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-on-image {
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.nav-on-image a {
+    color: white;
+    margin: 0 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 10px 18px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.nav-on-image a:hover {
+    background: var(--gold);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.hero-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+}
+
+.hero-center-text h1 {
+    font-size: 56px;
+    margin: 0 0 15px 0;
+    font-weight: 800;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-center-text h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+.btn-gold {
+    background: var(--gold);
+    color: white;
+    padding: 14px 32px;
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 100px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+.btn-gold:hover {
+    background: white;
+    color: var(--brown);
+    transform: translateY(-3px);
+}
+
+/* =============================================
+   PAGES - light design
+   ============================================= */
+header {
+    background: rgba(255,251,245,0.9);
+    backdrop-filter: blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+nav {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 16px 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+nav .logo {
+    font-weight: 800;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 10px 16px;
+    border-radius: 100px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+    transition: all 0.3s;
+}
+
+nav ul li a:hover {
+    background: var(--gold-light);
+}
+
+nav ul li a.active {
+    background: var(--brown);
+    color: white;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 30px 50px 30px;
+    background: var(--white);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+.hero-small {
+    padding: 60px 30px 40px 30px;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 25px;
+}
+
+.main-pretty {
+    background: var(--bg);
+    padding: 70px 25px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.welcome-pretty {
+    background: var(--white);
+    padding: 45px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 30px;
+}
+
+.product-card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 25px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+}
+
+.product-card .price {
+    font-weight: 800;
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin: 12px 0;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 22px;
+}
+
+.service-box {
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.service-box i {
+    font-size: 1.8rem;
+    color: var(--gold);
+    margin-bottom: 15px;
+}
+
+.form-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 13px 18px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+}
+
+.form-group textarea {
+    border-radius: 16px;
+    height: 120px;
+}
+
+.btn {
+    background: var(--gold);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 100px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-full {
+    width: 100%;
+    justify-content: center;
+}
+
+footer,
+.footer-pretty {
+    background: var(--brown);
+    color: #E9DDD0;
+    text-align: center;
+    padding: 35px 20px;
+    margin-top: 60px;
+}
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.info-box,
+.map-placeholder {
+    background: var(--white);
+    padding: 25px;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+.timeline {
+    margin-top: 30px;
+}
+
+.timeline-item {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 16px;
+    border-left: 4px solid var(--gold);
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .hero-center-text h1 {
+        font-size: 36px;
+    }
+    .hero-center-text h2 {
+        font-size: 18px;
+    }
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+    }
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+/* FULL IMAGE COVER - INDEX ONLY */
+.index-page {
+    margin: 0;
+    padding: 0;
+}
+
+.full-image-hero {
+    width: 100%;
+    height: 100vh;
+    background-image: url('../Assets/Images/ubuntu_coffee.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.full-image-hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+.nav-on-image {
+    position: relative;
+    z-index: 2;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center;
+    gap: 8px;
+    padding: 25px;
+    flex-wrap: wrap;
+}
+
+.nav-on-image a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    white-space: nowrap;
+}
+
+.nav-on-image a:hover {
+    background: #C89A5C;
+}
+
+.hero-text-middle {
+    position: relative;
+    z-index: 2;
+    margin: auto;
+    text-align: center;
+    color: white;
+}
+
+.hero-text-middle h1 {
+    font-size: 56px;
+    font-weight: 800;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.hero-text-middle h2 {
+    font-size: 22px;
+    font-weight: 400;
+    margin: 15px 0 30px 0;
+    text-shadow: 1px 1px 6px rgba(0,0,0,0.5);
+}
+
+.btn-gold {
+    background: #C89A5C;
+    color: white;
+    padding: 14px 32px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 700;
+    display: inline-flex;
+    gap: 8px;
+}
+/* TEAM - ABOUT US */
+.team-section { margin-top:30px; }
+.team-grid {
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:20px;
+}
+.team-card {
+  background:white;
+  border-radius:20px;
+  border:1px solid #E8DCC8;
+  overflow:hidden;
+  text-align:center;
+  box-shadow:0 8px 20px rgba(0,0,0,0.05);
+}
+.team-card:hover { transform: translateY(-5px); transition:0.2s; }
+.team-card img {
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  object-position: top;
+}
+.team-info { padding:16px; }
+.team-info h3 { font-family:'Playfair Display', serif; font-size:1.1rem; margin-bottom:4px; }
+.team-info .role { color:var(--terracotta); font-weight:700; font-size:0.85rem; margin-bottom:8px; }
+.team-info p { font-size:0.85rem; line-height:1.4; color:#5a4634; }
+@media(max-width:900px){ .team-grid{grid-template-columns:repeat(2,1fr)} }
+@media(max-width:500px){ .team-grid{grid-template-columns:1fr} }

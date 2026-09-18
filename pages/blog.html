@@ -2,33 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ubuntu Coffee | Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Ubuntu Coffee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Ubuntu Coffee</h1>
         <nav>
-            <a href="../index.html">Home</a>
-            <a href="./menu.html">Menu</a>
-            <a href="./services.html">Services</a>
-            <a href="./book.html">Book</a>
-            <a href="./about.html">About</a>
-            <a href="./blog.html">Blog</a>
-            <a href="./contact.html">Contact</a>
-            <a href="./enquiry.html">Enquiry</a>
+            <div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu Coffee</div>
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./menu.html"><i class="fas fa-coffee"></i> Menu</a></li>
+                <li><a href="./services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="./book.html"><i class="fas fa-calendar-check"></i> Book</a></li>
+                <li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="./blog.html" class="active"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="./contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                <li><a href="./enquiry.html"><i class="fas fa-envelope"></i> Enquiry</a></li>
+            </ul>
         </nav>
     </header>
-
+    <section class="hero hero-small"><h1><i class="fas fa-blog"></i> Blog</h1></section>
     <main>
-        <h2>Our Blog</h2>
-        <article>
-            <h3>The Story of Ubuntu</h3>
-            <p>What community means to us and our coffee.</p>
-        </article>
+        <div class="services-grid">
+            <article class="service-box"><i class="fas fa-seedling"></i><h3>Eastern Cape Farms</h3><p>Direct trade above fair-trade. 60% local beans.</p></article>
+            <article class="service-box"><i class="fas fa-mug-hot"></i><h3>V60 Guide</h3><p>20g coffee 300ml water 92C bloom 30 sec.</p></article>
+            <article class="service-box"><i class="fas fa-heart"></i><h3>Youth program</h3><p>Training program job placement.</p></article>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2026 Ubuntu Coffee</p>
-    </footer>
+    <footer><p>&copy; 2026 Ubuntu Coffee</p></footer>
+    <script src="../script.js"></script>
 </body>
 </html>

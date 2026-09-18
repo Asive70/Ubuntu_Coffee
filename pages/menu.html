@@ -2,34 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ubuntu Coffee - Menu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Ubuntu_Coffee</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Ubuntu Coffee</h1>
         <nav>
-            <a href="../index.html">Home</a>
-            <a href="./menu.html">Menu</a>
-            <a href="./services.html">Services</a>
-            <a href="./book.html">Book</a>
-            <a href="./about.html">About</a>
-            <a href="./blog.html">Blog</a>
-            <a href="./contact.html">Contact</a>
-            <a href="./enquiry.html">Enquiry</a>
+            <div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu Coffee</div>
+            <ul>
+                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./menu.html" class="active"><i class="fas fa-coffee"></i> Menu</a></li>
+                <li><a href="./services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="./book.html"><i class="fas fa-calendar-check"></i> Book</a></li>
+                <li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="./blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="./contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                <li><a href="./enquiry.html"><i class="fas fa-envelope"></i> Enquiry</a></li>
+            </ul>
         </nav>
     </header>
-
+    <section class="hero hero-small"><h1><i class="fas fa-coffee"></i> Menu - 15 Fresh Roasts</h1></section>
     <main>
-        <h2>Our Menu</h2>
-        <ul>
-            <li><h3>Ubuntu Espresso</h3><p>Strong and bold.</p><p>R35</p></li>
-            <li><h3>Cape Town Cappuccino</h3><p>Creamy with cinnamon.</p><p>R42</p></li>
-            <li><h3>Rooibos Latte</h3><p>Local favorite.</p><p>R38</p></li>
-        </ul>
+        <div class="product-grid">
+            <article class="product-card"><h3>Ubuntu House Blend</h3><p>Medium chocolate caramel 250g</p><p class="price">95</p><button class="btn btn-full"><i class="fas fa-cart-plus"></i> Add</button></article>
+            <article class="product-card"><h3>Ethiopian Single Origin</h3><p>Light fruity floral 250g</p><p class="price">120</p><button class="btn btn-full"><i class="fas fa-cart-plus"></i> Add</button></article>
+            <article class="product-card"><h3>Kenyan AA Dark</h3><p>Dark bold smoky 250g</p><p class="price">110</p><button class="btn btn-full"><i class="fas fa-cart-plus"></i> Add</button></article>
+            <article class="product-card"><h3>Decaf House</h3><p>Swiss water decaf 250g</p><p class="price">105</p><button class="btn btn-full"><i class="fas fa-cart-plus"></i> Add</button></article>
+            <article class="product-card"><h3>Cold Brew Bottle</h3><p>500ml ready drink</p><p class="price">45</p><button class="btn btn-full"><i class="fas fa-cart-plus"></i> Add</button></article>
+            <article class="product-card"><h3>Cappuccino</h3><p>Double shot milk foam</p><p class="price">38</p><button class="btn btn-full"><i class="fas fa-cart-plus"></i> Add</button></article>
+            <article class="product-card"><h3>Latte</h3><p>Espresso creamy milk</p><p class="price">42</p><button class="btn btn-full"><i class="fas fa-cart-plus"></i> Add</button></article>
+            <article class="product-card"><h3>Americano</h3><p>Black coffee 2 shots</p><p class="price">32</p><button class="btn btn-full"><i class="fas fa-cart-plus"></i> Add</button></article>
+        </div>
     </main>
-
-    <footer>
-        <p>&copy; 2026 Ubuntu Coffee</p>
-    </footer>
+    <footer><p>&copy; 2026 Ubuntu_Coffee</p></footer>
+    <script src="../script.js"></script>
 </body>
 </html>
