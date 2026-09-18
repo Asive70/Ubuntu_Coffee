@@ -126,3 +126,12 @@ index.html, menu.html, services.html, book.html, about.html, blog.html, contact.
 ### [1.0.0] - 2026-09-05 - Initial
 **Added:** Initial index.html, idea Ubuntu I am because we are community shop, location 123 Govan Mbeki Ave Central Gqeberha 6001, founded March 2023 Thando & Liam NMU
 **Notes:** Lecturer feedback needed wireframes in README, 8 pages, real address, favicon, full image hero, no spaces in image names
+
+## REFERENCES
+References - https://www.istockphoto.com/photo/local-coffee-shop-business-gm1358009667-431756313 (Thando Mbeki)
+
+https://www.youworkforthem.com/photo/140550/caf-owner-at-his-coffee-shop-holding-a-coffee-cup (Sipho)
+
+https://www.dreamstime.com/african-american-female-barista-looks-camera-offers-cup-coffee-to-customer-cheerful-smile-happy-service-works-image247408063 (Noma)
+
+https://stock.adobe.com/za/images/bearded-barista-in-apron-pouring-milk-from-pitcher-while-making-cappuccino-on-bar-in-coffee-shop/636313535 (Liam)
