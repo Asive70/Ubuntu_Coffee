@@ -525,3 +525,21 @@ footer,
 @media(max-width:900px){.shop-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:500px){.shop-grid{grid-template-columns:1fr}
 }
+
+.filter-btn{padding:8px 18px; border-radius:100px; border:1px solid #E8DCC8; background:white; cursor:pointer; margin:3px;}
+.filter-btn.active{background:#2B1E16; color:white;}
+.modal{display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:9999; justify-content:center; align-items:center;}
+.modal-content{background:#FFFBF5; padding:30px; border-radius:24px; max-width:400px; width:90%;}
+#map{z-index:1;}
+/*----------
+
+/*FILTER BUTTONS + MODAL + CART */
+.filter-btn { padding:8px 16px; margin:5px; border:1px solid #6F4E37; background:#fff; color:#6F4E37; border-radius:20px; cursor:pointer; }
+.filter-btn.active, .filter-btn:hover { background:#6F4E37; color:#fff; }
+#cartCount { background:#6F4E37; color:#fff; border-radius:50%; padding:2px 6px; font-size:0.8em; }
+.full-image-hero { position:relative; background: url('../assets/images/hero.jpg') center/cover no-repeat; height:100vh; }
+.nav-on-image { display:flex; gap:15px; justify-content:center; padding:20px; background:rgba(0,0,0,0.5); }
+.nav-on-image a { color:#fff; text-decoration:none; }
+.hero-text-middle { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; color:#fff; }
+.btn-gold { background:#D4AF37; color:#000; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:bold; }
+

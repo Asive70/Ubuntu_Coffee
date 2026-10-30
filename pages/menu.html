@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu - Ubuntu Coffee</title>
 <link rel="stylesheet" href="../css/styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
- <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyLsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
 </head>
 <body>
 
@@ -15,7 +15,7 @@
 <div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu Coffee</div>
 <ul>
 <li><a href="../index.html"><i class="fas fa-house"></i> Home</a></li>
-<li><a href="menu.html" class="active"><i class="fas fa-utensils"></i> Menu</a></li>
+<li><a href="menu.html" class="active"><i class="fas fa-utensils"></i> Menu (<span id="cartCount">0</span>)</a></li>
 <li><a href="book.html"><i class="fas fa-chair"></i> Book</a></li>
 <li><a href="about.html"><i class="fas fa-users"></i> About</a></li>
 <li><a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a></li>
@@ -31,85 +31,96 @@
 </section>
 
 <main>
-<div class="shop-grid">
 
-<div class="shop-card">
-<img src="../assets/images/menu/ubuntu_house_blend.jpg" alt="Ubuntu House Blend">
+<div style="text-align:center; margin-bottom:25px; background:white; padding:20px; border-radius:24px; border:1px solid #F0E6D8; box-shadow:0 10px 30px rgba(43,30,22,0.06);">
+<input type="text" id="productSearch" placeholder="Search Ubuntu Coffee beans, drinks..." style="padding:13px 18px; border-radius:100px; width:80%; max-width:400px; border:1px solid #F0E6D8; font-family:Poppins;">
+<div style="margin-top:12px;">
+<button class="filter-btn active" data-filter="all">All</button>
+<button class="filter-btn" data-filter="coffee">Coffee Beans</button>
+<button class="filter-btn" data-filter="hot">Hot Drinks</button>
+<button class="filter-btn" data-filter="cold">Cold Brew</button>
+</div>
+</div>
+
+<div class="shop-grid" id="shopGrid">
+
+<div class="shop-card" data-category="coffee" data-name="Ubuntu House Blend">
+<img src="../assets/images/menu/ubuntu_house_blend.jpg" alt="Ubuntu House Blend Ubuntu Coffee">
 <div class="shop-info">
 <h3>Ubuntu House Blend</h3>
 <p>Medium chocolate caramel 250g</p>
 <div class="price">R95</div>
-<button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+<button onclick="addToCart(1)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
-<div class="shop-card">
-<img src="../assets/images/menu/ethiopian.jpg" alt="Ethiopian Single Origin">
+<div class="shop-card" data-category="coffee" data-name="Ethiopian Single Origin">
+<img src="../assets/images/menu/ethiopian.jpg" alt="Ethiopian Single Origin Ubuntu Coffee">
 <div class="shop-info">
 <h3>Ethiopian Single Origin</h3>
 <p>Light fruity floral 250g</p>
 <div class="price">R120</div>
-<button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+<button onclick="addToCart(2)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
-<div class="shop-card">
-<img src="../assets/images/menu/kenyan.jpg" alt="Kenyan AA Dark">
+<div class="shop-card" data-category="coffee" data-name="Kenyan AA Dark">
+<img src="../assets/images/menu/kenyan.jpg" alt="Kenyan AA Dark Ubuntu Coffee">
 <div class="shop-info">
 <h3>Kenyan AA Dark</h3>
 <p>Dark bold smoky 250g</p>
 <div class="price">R110</div>
-<button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+<button onclick="addToCart(3)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
-<div class="shop-card">
-<img src="../assets/images/menu/decaf.jpg" alt="Decaf House">
+<div class="shop-card" data-category="coffee" data-name="Decaf House">
+<img src="../assets/images/menu/decaf.jpg" alt="Decaf House Ubuntu Coffee">
 <div class="shop-info">
 <h3>Decaf House</h3>
 <p>Swiss water decaf 250g</p>
 <div class="price">R105</div>
-<button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+<button onclick="addToCart(4)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
-<div class="shop-card">
-<img src="../assets/images/menu/cold_brew.jpg" alt="Cold Brew Bottle">
+<div class="shop-card" data-category="cold" data-name="Cold Brew Bottle">
+<img src="../assets/images/menu/cold_brew.jpg" alt="Cold Brew Bottle Ubuntu Coffee">
 <div class="shop-info">
 <h3>Cold Brew Bottle</h3>
 <p>500ml ready drink</p>
 <div class="price">R45</div>
-<button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+<button onclick="addToCart(5)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
-<div class="shop-card">
-<img src="../assets/images/menu/cappuccino.jpg" alt="Cappuccino">
+<div class="shop-card" data-category="hot" data-name="Cappuccino">
+<img src="../assets/images/menu/cappuccino.jpg" alt="Cappuccino Ubuntu Coffee">
 <div class="shop-info">
 <h3>Cappuccino</h3>
 <p>Double shot milk foam</p>
 <div class="price">R38</div>
-<button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+<button onclick="addToCart(6)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
-<div class="shop-card">
-<img src="../assets/images/menu/latte.jpg" alt="Latte">
+<div class="shop-card" data-category="hot" data-name="Latte">
+<img src="../assets/images/menu/latte.jpg" alt="Latte Ubuntu Coffee">
 <div class="shop-info">
 <h3>Latte</h3>
 <p>Espresso creamy milk</p>
 <div class="price">R42</div>
-<button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+<button onclick="addToCart(7)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
-<div class="shop-card">
-<img src="../assets/images/menu/americano.jpg" alt="Americano">
+<div class="shop-card" data-category="hot" data-name="Americano">
+<img src="../assets/images/menu/americano.jpg" alt="Americano Ubuntu Coffee">
 <div class="shop-info">
 <h3>Americano</h3>
 <p>Black coffee 2 shots</p>
 <div class="price">R32</div>
-<button><i class="fas fa-cart-plus"></i> Add to Cart</button>
+<button onclick="addToCart(8)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
 </div>
 </div>
 
@@ -120,6 +131,8 @@
 <p>&copy; 2026 Ubuntu Coffee - 123 Govan Mbeki Avenue, Central Gqeberha 6001</p>
 <p>Instagram @ubuntucoffeepe</p>
 </footer>
+
+<script src="../js/main.js"></script>
 
 </body>
 </html>

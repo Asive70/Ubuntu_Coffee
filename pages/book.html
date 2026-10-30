@@ -14,7 +14,7 @@
             <div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu Coffee</div>
             <ul>
                 <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="./menu.html"><i class="fas fa-coffee"></i> Menu</a></li>
+                <li><a href="./menu.html"><i class="fas fa-coffee"></i> Menu (<span id="cartCount">0</span>)</a></li>
                 <li><a href="./services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
                 <li><a href="./book.html" class="active"><i class="fas fa-calendar-check"></i> Book</a></li>
                 <li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
@@ -28,18 +28,25 @@
     <main>
         <div class="form-container">
             <h2><i class="fas fa-book-open"></i> Reservation</h2>
-            <form id="bookingForm">
-                <div class="form-group"><label><i class="fas fa-user"></i> Full Name:</label><input type="text" id="name" required placeholder="Thandi Nkosi"></div>
-                <div class="form-group"><label><i class="fas fa-envelope"></i> Email:</label><input type="email" id="email" required></div>
-                <div class="form-group"><label><i class="fas fa-calendar"></i> Date:</label><input type="date" id="date" required></div>
-                <div class="form-group"><label><i class="fas fa-clock"></i> Time:</label><input type="time" id="time" required></div>
-                <div class="form-group"><label><i class="fas fa-users"></i> Guests:</label><select id="guests"><option>1-2</option><option>3-4</option><option>5-10</option></select></div>
-                <div class="form-group"><label><i class="fas fa-comment"></i> Requests:</label><textarea id="message"></textarea></div>
+            <form id="bookingForm" action="https://formsubmit.co/ST10506474@RCCONNECT.EDU.ZA" method="POST">
+                <!-- ADDED FOR EMAIL TO WORK-->
+                <input type="hidden" name="_subject" value="New Table Booking - Ubuntu Coffee">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="../pages/thankyou.html">
+                
+                <div class="form-group"><label><i class="fas fa-user"></i> Full Name:</label><input type="text" id="name" name="name" required placeholder="Thandi Nkosi"></div>
+                <div class="form-group"><label><i class="fas fa-envelope"></i> Email:</label><input type="email" id="email" name="email" required placeholder="you@example.com"></div>
+                <div class="form-group"><label><i class="fas fa-phone"></i> Phone (SA):</label><input type="tel" id="phone" name="phone" required placeholder="0412547854" pattern="0[0-9]{9}"></div>
+                <div class="form-group"><label><i class="fas fa-calendar"></i> Date:</label><input type="date" id="date" name="date" required></div>
+                <div class="form-group"><label><i class="fas fa-clock"></i> Time:</label><input type="time" id="time" name="time" required></div>
+                <div class="form-group"><label><i class="fas fa-users"></i> Guests:</label><select id="guests" name="guests"><option>1-2</option><option>3-4</option><option>5-10</option><option>10+ Event 50-180</option></select></div>
+                <div class="form-group"><label><i class="fas fa-comment"></i> Requests:</label><textarea id="message" name="message" placeholder="Birthday, meeting..."></textarea></div>
                 <button type="submit" class="btn btn-full"><i class="fas fa-check"></i> Confirm Booking</button>
             </form>
         </div>
     </main>
     <footer><p>&copy; 2026 Ubuntu_Coffee</p></footer>
-    <script src="../script.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

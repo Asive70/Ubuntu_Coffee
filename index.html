@@ -9,11 +9,11 @@
     <link rel="icon" type="image/png" href="assets/images/favicon.png">
 </head>
 <body class="index-page">
-    <div class="full-image-hero">
+    <div class="full-image-hero" style="background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('./assets/images/ubuntu_coffee.jpg'); background-size: cover; background-position: center; height: 100vh; position: relative;">
         <!-- TABS ON TOP OF IMAGE - HORIZONTAL -->
         <nav class="nav-on-image">
             <a href="./index.html"><i class="fas fa-home"></i> Home</a>
-            <a href="./pages/menu.html"><i class="fas fa-coffee"></i> Menu</a>
+            <a href="./pages/menu.html"><i class="fas fa-coffee"></i> Menu (<span id="cartCount">0</span>)</a>
             <a href="./pages/services.html"><i class="fas fa-concierge-bell"></i> Services</a>
             <a href="./pages/book.html"><i class="fas fa-calendar-check"></i> Book</a>
             <a href="./pages/about.html"><i class="fas fa-info-circle"></i> About</a>
@@ -26,9 +26,26 @@
             <h1>Ubuntu Coffee</h1>
             <h2>I am because we are. Sip coffee, share community.</h2>
             <a href="./pages/book.html" class="btn-gold"><i class="fas fa-calendar-check"></i> Book Now</a>
+            <a href="#" id="todaySpecialBtn" class="btn-gold" style="margin-left:10px; background:#fff; color:#6F4E37;"><i class="fas fa-star"></i> Today's Special</a>
         </div>
     </div>
+
+    <div id="specialModal" class="modal" style="display:none; position:fixed; z-index:2000; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.7);">
+        <div style="background:#fff; margin:10% auto; padding:30px; border-radius:12px; max-width:500px; text-align:center; position:relative;">
+            <span id="closeSpecial" style="position:absolute; right:15px; top:10px; font-size:28px; cursor:pointer;">&times;</span>
+            <h2><i class="fas fa-star"></i> Today's Special</h2>
+            <p style="font-size:1.2em; margin:15px 0;"><strong>Ubuntu Brew + Rusk Combo - R45</strong></p>
+            <p>Our signature house blend with homemade buttermilk rusks. Available until 11am.</p>
+            <a href="./pages/menu.html" class="btn-gold" style="display:inline-block; margin-top:15px; padding:10px 20px; text-decoration:none;"><i class="fas fa-coffee"></i> Order Now</a>
+        </div>
+    </div>
+
        <footer><p>&copy; 2026 Ubuntu Coffee</p></footer>
-    <script src="script.js"></script>
+    <script src="./js/main.js"></script>
+    <script>
+        document.getElementById('todaySpecialBtn').onclick = function(e){ e.preventDefault(); document.getElementById('specialModal').style.display='block'; }
+        document.getElementById('closeSpecial').onclick = function(){ document.getElementById('specialModal').style.display='none'; }
+        window.onclick = function(e){ if(e.target == document.getElementById('specialModal')) document.getElementById('specialModal').style.display='none'; }
+    </script>
 </body>
 </html>
