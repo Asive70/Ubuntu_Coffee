@@ -5,144 +5,158 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Menu - Ubuntu Coffee</title>
 <link rel="stylesheet" href="../css/styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyLsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+.filter-btn{padding:8px 18px;margin:5px;border:1px solid #6F4E37;background:#fff;color:#6F4E37;border-radius:25px;cursor:pointer}
+.filter-btn.active{background:#6F4E37;color:#fff}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;padding:20px}
+.shop-card{background:#fff;padding:15px;border-radius:12px;border:1px solid #ddd;text-align:center}
+.shop-card img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+#cartCount{background:#D4AF37;color:#000;padding:2px 7px;border-radius:50%;font-weight:bold}
+.cart-box{background:#fff; margin:20px; padding:20px; border-radius:12px; border:2px solid #D4AF37;}
+.cart-item{display:flex; justify-content:space-between; align-items:center; padding:10px; border-bottom:1px solid #eee}
+.remove-btn{background:#c0392b;color:#fff;border:none;padding:4px 8px;border-radius:4px;cursor:pointer}
+.qty-btn{background:#6F4E37;color:#fff;border:none;padding:2px 7px;border-radius:3px;cursor:pointer;margin:0 2px}
+</style>
 </head>
 <body>
-
 <header>
 <nav>
 <div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu Coffee</div>
 <ul>
-<li><a href="../index.html"><i class="fas fa-house"></i> Home</a></li>
-<li><a href="menu.html" class="active"><i class="fas fa-utensils"></i> Menu (<span id="cartCount">0</span>)</a></li>
-<li><a href="book.html"><i class="fas fa-chair"></i> Book</a></li>
-<li><a href="about.html"><i class="fas fa-users"></i> About</a></li>
-<li><a href="blog.html"><i class="fas fa-newspaper"></i> Blog</a></li>
-<li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
-<li><a href="enquiry.html"><i class="fas fa-paper-plane"></i> Enquiry</a></li>
+<li><a href="../index.html">Home</a></li>
+<li><a href="menu.html" class="active">Menu (<span id="cartCount">0</span>)</a></li>
+<li><a href="book.html">Book</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="enquiry.html">Enquiry</a></li>
 </ul>
 </nav>
 </header>
 
-<section class="hero-small">
+<section style="text-align:center;padding:20px;background:#6F4E37;color:#fff;">
 <h1>Our Menu</h1>
-<p>123 Govan Mbeki Avenue, Central Gqeberha - PayFast & 5km Delivery</p>
+<input type="text" id="productSearch" placeholder="Search..." style="padding:12px 18px; border-radius:25px; width:80%; max-width:350px; margin-top:10px;">
+<div style="margin-top:10px;">
+<button class="filter-btn active" onclick="filterMe('all',this)">All</button>
+<button class="filter-btn" onclick="filterMe('coffee',this)">Coffee Beans</button>
+<button class="filter-btn" onclick="filterMe('hot',this)">Hot Drinks</button>
+<button class="filter-btn" onclick="filterMe('cold',this)">Cold Brew</button>
+<button class="filter-btn" onclick="filterMe('warm',this)">Warm</button>
+</div>
 </section>
 
-<main>
-
-<div style="text-align:center; margin-bottom:25px; background:white; padding:20px; border-radius:24px; border:1px solid #F0E6D8; box-shadow:0 10px 30px rgba(43,30,22,0.06);">
-<input type="text" id="productSearch" placeholder="Search Ubuntu Coffee beans, drinks..." style="padding:13px 18px; border-radius:100px; width:80%; max-width:400px; border:1px solid #F0E6D8; font-family:Poppins;">
-<div style="margin-top:12px;">
-<button class="filter-btn active" data-filter="all">All</button>
-<button class="filter-btn" data-filter="coffee">Coffee Beans</button>
-<button class="filter-btn" data-filter="hot">Hot Drinks</button>
-<button class="filter-btn" data-filter="cold">Cold Brew</button>
-</div>
+<!-- CART -->
+<div class="cart-box">
+<h3><i class="fas fa-shopping-cart"></i> My Cart - <span id="cartTotalTop">R0.00</span> <button onclick="clearCart()" style="float:right; background:#c0392b; color:#fff; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">Clear</button></h3>
+<div id="cartList"><p>Cart empty - add items below</p></div>
+<p style="margin-top:10px;"><strong>Total: <span id="cartTotal">R0.00</span></strong></p>
+<button onclick="checkout()" style="width:100%; padding:10px; background:#D4AF37; border:none; border-radius:6px; font-weight:bold; cursor:pointer; margin-top:10px;">Checkout via Email</button>
 </div>
 
-<div class="shop-grid" id="shopGrid">
-
-<div class="shop-card" data-category="coffee" data-name="Ubuntu House Blend">
-<img src="../assets/images/menu/ubuntu_house_blend.jpg" alt="Ubuntu House Blend Ubuntu Coffee">
-<div class="shop-info">
-<h3>Ubuntu House Blend</h3>
-<p>Medium chocolate caramel 250g</p>
-<div class="price">R95</div>
-<button onclick="addToCart(1)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-</div>
-</div>
-
-<div class="shop-card" data-category="coffee" data-name="Ethiopian Single Origin">
-<img src="../assets/images/menu/ethiopian.jpg" alt="Ethiopian Single Origin Ubuntu Coffee">
-<div class="shop-info">
-<h3>Ethiopian Single Origin</h3>
-<p>Light fruity floral 250g</p>
-<div class="price">R120</div>
-<button onclick="addToCart(2)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-</div>
+<div class="shop-grid">
+<div class="shop-card" data-category="coffee" data-name="Ubuntu House Blend"><img src="../assets/images/menu/ubuntu_house_blend.jpg" alt=""><h3>Ubuntu House Blend</h3><p>Medium chocolate caramel 250g</p><div class="price">R95</div><button onclick="addToCart(this,'Ubuntu House Blend',95)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
+<div class="shop-card" data-category="coffee" data-name="Ethiopian Single Origin"><img src="../assets/images/menu/ethiopian.jpg" alt=""><h3>Ethiopian Single Origin</h3><p>Light fruity floral 250g</p><div class="price">R120</div><button onclick="addToCart(this,'Ethiopian Single Origin',120)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
+<div class="shop-card" data-category="coffee" data-name="Kenyan AA Dark"><img src="../assets/images/menu/kenyan.jpg" alt=""><h3>Kenyan AA Dark</h3><p>Dark bold smoky 250g</p><div class="price">R110</div><button onclick="addToCart(this,'Kenyan AA Dark',110)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
+<div class="shop-card" data-category="coffee" data-name="Decaf House"><img src="../assets/images/menu/decaf.jpg" alt=""><h3>Decaf House</h3><p>Swiss water decaf 250g</p><div class="price">R105</div><button onclick="addToCart(this,'Decaf House',105)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
+<div class="shop-card" data-category="cold" data-name="Cold Brew Bottle"><img src="../assets/images/menu/cold_brew.jpg" alt=""><h3>Cold Brew Bottle</h3><p>500ml ready drink</p><div class="price">R45</div><button onclick="addToCart(this,'Cold Brew Bottle',45)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
+<div class="shop-card" data-category="hot" data-name="Cappuccino"><img src="../assets/images/menu/cappuccino.jpg" alt=""><h3>Cappuccino</h3><p>Double shot milk foam</p><div class="price">R38</div><button onclick="addToCart(this,'Cappuccino',38)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
+<div class="shop-card" data-category="hot" data-name="Latte"><img src="../assets/images/menu/latte.jpg" alt=""><h3>Latte</h3><p>Espresso creamy milk</p><div class="price">R42</div><button onclick="addToCart(this,'Latte',42)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
+<div class="shop-card" data-category="hot" data-name="Americano"><img src="../assets/images/menu/americano.jpg" alt=""><h3>Americano</h3><p>Black coffee 2 shots</p><div class="price">R32</div><button onclick="addToCart(this,'Americano',32)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
+<div class="shop-card" data-category="warm" data-name="Buttermilk Rusks"><img src="../assets/images/buttermilk-rusks.jpg" alt=""><h3>Buttermilk Rusks</h3><p>Warm, delicious Rusks</p><div class="price">R45</div><button onclick="addToCart(this,'Buttermilk Rusks',45)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
 </div>
 
-<div class="shop-card" data-category="coffee" data-name="Kenyan AA Dark">
-<img src="../assets/images/menu/kenyan.jpg" alt="Kenyan AA Dark Ubuntu Coffee">
-<div class="shop-info">
-<h3>Kenyan AA Dark</h3>
-<p>Dark bold smoky 250g</p>
-<div class="price">R110</div>
-<button onclick="addToCart(3)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-</div>
-</div>
+<footer style="text-align:center;padding:20px;background:#6F4E37;color:#fff;">&copy; 2026 Ubuntu Coffee</footer>
 
-<div class="shop-card" data-category="coffee" data-name="Decaf House">
-<img src="../assets/images/menu/decaf.jpg" alt="Decaf House Ubuntu Coffee">
-<div class="shop-info">
-<h3>Decaf House</h3>
-<p>Swiss water decaf 250g</p>
-<div class="price">R105</div>
-<button onclick="addToCart(4)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-</div>
-</div>
+<script>
 
-<div class="shop-card" data-category="cold" data-name="Cold Brew Bottle">
-<img src="../assets/images/menu/cold_brew.jpg" alt="Cold Brew Bottle Ubuntu Coffee">
-<div class="shop-info">
-<h3>Cold Brew Bottle</h3>
-<p>500ml ready drink</p>
-<div class="price">R45</div>
-<button onclick="addToCart(5)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-</div>
-</div>
+function getCart(){return JSON.parse(localStorage.getItem('ubuntuCart')||'[]');}
+function saveCart(c){localStorage.setItem('ubuntuCart',JSON.stringify(c));updateCount();renderCart();}
 
-<div class="shop-card" data-category="hot" data-name="Cappuccino">
-<img src="../assets/images/menu/cappuccino.jpg" alt="Cappuccino Ubuntu Coffee">
-<div class="shop-info">
-<h3>Cappuccino</h3>
-<p>Double shot milk foam</p>
-<div class="price">R38</div>
-<button onclick="addToCart(6)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-</div>
-</div>
+function updateCount(){
+  var cart=getCart();
+  var count=cart.reduce((s,i)=>s+i.qty,0);
+  document.querySelectorAll('#cartCount').forEach(e=>e.textContent=count);
+}
 
-<div class="shop-card" data-category="hot" data-name="Latte">
-<img src="../assets/images/menu/latte.jpg" alt="Latte Ubuntu Coffee">
-<div class="shop-info">
-<h3>Latte</h3>
-<p>Espresso creamy milk</p>
-<div class="price">R42</div>
-<button onclick="addToCart(7)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-</div>
-</div>
+function renderCart(){
+  var cart=getCart();
+  var list=document.getElementById('cartList');
+  var total=0;
+  if(cart.length===0){
+    list.innerHTML='<p>Cart empty - add items below</p>';
+  } else {
+    var html='';
+    cart.forEach((item, idx)=>{
+      total+=item.price*item.qty;
+      html+=`<div class="cart-item">
+        <div><strong>${item.name}</strong><br>R${item.price} x ${item.qty} = R${(item.price*item.qty).toFixed(2)}</div>
+        <div>
+          <button class="qty-btn" onclick="changeQty(${idx},-1)">-</button>
+          <span>${item.qty}</span>
+          <button class="qty-btn" onclick="changeQty(${idx},1)">+</button>
+          <button class="remove-btn" onclick="removeItem(${idx})"><i class="fas fa-trash"></i> Remove</button>
+        </div>
+      </div>`;
+    });
+    list.innerHTML=html;
+  }
+  document.getElementById('cartTotal').textContent='R'+total.toFixed(2);
+  document.getElementById('cartTotalTop').textContent='R'+total.toFixed(2);
+}
 
-<div class="shop-card" data-category="hot" data-name="Americano">
-<img src="../assets/images/menu/americano.jpg" alt="Americano Ubuntu Coffee">
-<div class="shop-info">
-<h3>Americano</h3>
-<p>Black coffee 2 shots</p>
-<div class="price">R32</div>
-<button onclick="addToCart(8)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-</div>
-</div>
+function addToCart(btn,name,price){
+  var cart=getCart();
+  var found=cart.find(i=>i.name===name);
+  if(found) found.qty++; else cart.push({name:name,price:price,qty:1});
+  saveCart(cart);
+  var old=btn.innerHTML; btn.innerHTML='Added!'; btn.style.background='#2ecc71';
+  setTimeout(()=>{btn.innerHTML=old; btn.style.background='#6F4E37';},800);
+}
 
-<div class="shop-card" data-category="warm" data-name="Buttermilk Rusks">
-<img src="../assets/images/buttermilk-rusks.jpg" alt="Cold Brew Bottle Ubuntu Coffee">
-<div class="shop-info">
-<h3>Buttermilk Rusks</h3>
-<p>Warm, delicious Rusks</p>
-<div class="price">R45</div>
-<button onclick="addToCart(5)"><i class="fas fa-cart-plus"></i> Add to Cart</button>
-</div>
-</div>
+function changeQty(idx,delta){
+  var cart=getCart();
+  cart[idx].qty+=delta;
+  if(cart[idx].qty<=0) cart.splice(idx,1);
+  saveCart(cart);
+}
 
-</div>
-</main>
+function removeItem(idx){
+  var cart=getCart();
+  cart.splice(idx,1);
+  saveCart(cart);
+}
 
-<footer>
-<p>&copy; 2026 Ubuntu Coffee - 123 Govan Mbeki Avenue, Central Gqeberha 6001</p>
-<p>Instagram @ubuntucoffeepe</p>
-</footer>
+function clearCart(){
+  if(confirm('Clear cart?')){localStorage.removeItem('ubuntuCart');updateCount();renderCart();}
+}
 
-<script src="../js/main.js"></script>
+function filterMe(cat,btnClicked){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btnClicked.classList.add('active');
+  document.querySelectorAll('.shop-card').forEach(c=>{
+    c.style.display=(cat==='all'||c.dataset.category===cat)?'':'none';
+  });
+}
 
+document.getElementById('productSearch').addEventListener('input',function(){
+  var term=this.value.toLowerCase();
+  document.querySelectorAll('.shop-card').forEach(c=>{
+    c.style.display=c.dataset.name.toLowerCase().includes(term)?'':'none';
+  });
+});
+
+function checkout(){
+  var cart=getCart();
+  if(cart.length===0){alert('Cart empty');return;}
+  var body='ORDER\n';
+  var total=0;
+  cart.forEach(i=>{body+=`${i.name} x${i.qty} = R${(i.price*i.qty).toFixed(2)}\n`; total+=i.price*i.qty;});
+  body+=`\nTOTAL: R${total.toFixed(2)}`;
+  window.location.href=`mailto:thando@ubuntucoffee.co.za?subject=Order&body=${encodeURIComponent(body)}`;
+}
+
+updateCount(); renderCart();
+</script>
 </body>
 </html>

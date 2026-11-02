@@ -1,57 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Ubuntu Coffee</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    <link rel="stylesheet" href="../css/styles.css">
-     <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - Ubuntu Coffee</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="icon" type="image/png" href="../assets/images/favicon.png">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu Coffee</div>
-            <ul>
-                <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="./menu.html"><i class="fas fa-coffee"></i> Menu (<span id="cartCount">0</span>)</a></li>
-                <li><a href="./services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
-                <li><a href="./book.html"><i class="fas fa-calendar-check"></i> Book</a></li>
-                <li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a href="./blog.html"><i class="fas fa-blog"></i> Blog</a></li>
-                <li><a href="./contact.html" class="active"><i class="fas fa-phone"></i> Contact</a></li>
-                <li><a href="./enquiry.html"><i class="fas fa-envelope"></i> Enquiry</a></li>
-            </ul>
-        </nav>
-    </header>
-    <section class="hero hero-small"><h1><i class="fas fa-phone-alt"></i> Get in Touch</h1></section>
-    <main>
-        <div class="contact-wrapper">
-            <div class="form-container">
-                <h2><i class="fas fa-envelope"></i> Send Message</h2>
-                <form id="contactForm" action="https://formsubmit.co/ST10506474@RCCONNECT.EDU.ZA" method="POST">
-                    <!-- ADDED FOR EMAIL -->
-                    <input type="hidden" name="_subject" value="New Contact Message - Ubuntu Coffee">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="../pages/thankyou.html">
-                    
-                    <div class="form-group"><label><i class="fas fa-user"></i> Name:</label><input type="text" id="name" name="name" required placeholder="Your name"></div>
-                    <div class="form-group"><label><i class="fas fa-envelope"></i> Email:</label><input type="email" id="email" name="email" required placeholder="you@example.com"></div>
-                    <div class="form-group"><label><i class="fas fa-comment"></i> Message:</label><textarea id="message" name="message" required placeholder="How can we help?"></textarea></div>
-                    <button type="submit" class="btn btn-full"><i class="fas fa-paper-plane"></i> Send</button>
-                </form>
-            </div>
-            <div>
-                <div class="info-box"><h3><i class="fas fa-info-circle"></i> Address</h3><p><i class="fas fa-map-pin"></i> 123 Govan Mbeki Ave, Gqeberha, 6001</p><p><i class="fas fa-phone"></i> 041 254 7854</p><p><i class="fas fa-clock"></i> Mon-Fri 7am-6pm - Sat-Sun 8am-4am</p></div>
-                <div class="map-placeholder"><i class="fas fa-map-marked-alt"></i><h3>Find Us in Town</h3><p>Google Map: </p></div>
-                 <h3>Find Us Here</h3>
-                  <!-- Google Map Embed -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.314240819703!2d25.617518475523507!3d-33.958761773192315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad2f413719f77%3A0x32f49f40fe0eaaf1!2s123%20Govan%20Mbeki%20St%2C%20Gqeberha%20Central%2C%20Gqeberha%2C%206001!5e0!3m2!1sen!2sza!4v1789713554619!5m2!1sen!2sza" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-            </div>
-        </div>
-    </main>
-    <footer><p>&copy; 2026 Ubuntu Coffee</p></footer>
-    <script src="../js/main.js"></script>
+<header>
+<nav>
+<div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu Coffee</div>
+<ul>
+<li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="./menu.html"><i class="fas fa-coffee"></i> Menu (<span id="cartCount">0</span>)</a></li>
+<li><a href="./services.html"><i class="fas fa-concierge-bell"></i> Services</a></li>
+<li><a href="./book.html"><i class="fas fa-calendar-check"></i> Book</a></li>
+<li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
+<li><a href="./blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+<li><a href="./contact.html" class="active"><i class="fas fa-phone"></i> Contact</a></li>
+<li><a href="./enquiry.html"><i class="fas fa-envelope"></i> Enquiry</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero hero-small"><h1><i class="fas fa-phone"></i> Contact Us</h1><p>123 Govan Mbeki Ave, Gqeberha Central, 6001</p></section>
+
+<main>
+<div style="display:flex; gap:20px; flex-wrap:wrap; padding:20px; max-width:1000px; margin:0 auto;">
+<div class="form-container" style="flex:1; min-width:300px;">
+<h2>Send Message</h2>
+<form id="contactForm">
+<input type="hidden" name="access_key" value="eed9e7b6-6e5d-4cd7-9d50-8680ab37b2c6">
+<input type="hidden" name="subject" value="New Contact Message - Ubuntu Coffee">
+<input type="hidden" name="from_name" value="Ubuntu Coffee Contact">
+
+<div class="form-group"><label>Name:</label><input type="text" name="name" required placeholder="Your name"></div>
+<div class="form-group"><label>Email:</label><input type="email" name="email" required placeholder="you@example.com"></div>
+<div class="form-group"><label>Message:</label><textarea name="message" required rows="5" placeholder="Your message..."></textarea></div>
+<button type="submit" class="btn btn-full" id="contactBtn"><i class="fas fa-paper-plane"></i> Send Message</button>
+<p id="contactResult" style="text-align:center; margin-top:10px;"></p>
+</form>
+</div>
+
+<div class="card" style="flex:1; min-width:300px;">
+<h3><i class="fas fa-location-dot"></i> Visit Us</h3>
+<p><strong>123 Govan Mbeki Ave, Central Gqeberha 6001</strong><br>041 254 7854<br>thando@ubuntucoffee.co.za</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3309.314240819703!2d25.617518475523507!3d-33.958761773192315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e7ad2f413719f77%3A0x32f49f40fe0eaaf1!2s123%20Govan%20Mbeki%20St%2C%20Gqeberha%20Central%2C%20Gqeberha%2C%206001!5e0!3m2!1sen!2sza!4v1789713554619!5m2!1sen!2sza" width="100%" height="300" style="border:0; border-radius:12px;" allowfullscreen loading="lazy"></iframe>
+</div>
+</div>
+</main>
+
+<footer><p>&copy; 2026 Ubuntu Coffee</p></footer>
+<script src="../js/main.js"></script>
+<script>
+    
+//contact
+document.getElementById('contactForm').addEventListener('submit', async function(e){
+ e.preventDefault();
+ const btn=document.getElementById('contactBtn');
+ const res=document.getElementById('contactResult');
+ btn.innerHTML='Sending...'; btn.disabled=true;
+ const data=Object.fromEntries(new FormData(this));
+ try{
+  const r=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+  const j=await r.json();
+  if(j.success){ res.innerHTML='Sent! Redirecting...'; window.location.href='./thankyou.html'; }
+  else res.innerHTML='Failed - try again';
+ }catch{ res.innerHTML='Network error'; }
+ btn.innerHTML='<i class="fas fa-paper-plane"></i> Send Message'; btn.disabled=false;
+});
+</script>
 </body>
 </html>
