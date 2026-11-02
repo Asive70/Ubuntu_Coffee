@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="../css/styles.css">
      <link rel="icon" type="image/png" href="../assets/images/favicon.png">
+<style>
+/* animations */
+.services-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; padding:30px; max-width:1100px; margin:0 auto;}
+.service-box{background:#fff; border-radius:16px; padding:0; overflow:hidden; border:1px solid #eee; box-shadow:0 4px 15px rgba(0,0,0,0.06); transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); opacity:0; transform:translateY(30px); animation:fadeUp 0.7s forwards;}
+.service-box:nth-child(1){animation-delay:0.1s} .service-box:nth-child(2){animation-delay:0.3s} .service-box:nth-child(3){animation-delay:0.5s}
+@keyframes fadeUp{to{opacity:1; transform:translateY(0);}}
+.service-box:hover{transform:translateY(-10px) scale(1.02); box-shadow:0 20px 40px rgba(111,78,55,0.15); border-color:#D4AF37;}
+.blog-img{height:200px; background:linear-gradient(135deg,#6F4E37,#D4AF37); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;}
+.blog-img i{font-size:70px; color:#fff; transition:transform 0.5s;}
+.service-box:hover .blog-img i{transform:scale(1.2) rotate(5deg);}
+.blog-content{padding:22px;}
+.service-box h3{color:#6F4E37; margin:10px 0; font-size:1.25rem;}
+.service-box p{color:#666; line-height:1.6;}
+.blog-meta{display:flex; gap:15px; font-size:0.85rem; color:#999; margin-bottom:12px;}
+.blog-meta span{background:#FFF8E1; padding:4px 10px; border-radius:20px; color:#6F4E37;}
+.read-more{margin-top:15px; background:#6F4E37; color:#fff; border:none; padding:8px 16px; border-radius:25px; cursor:pointer; transition:all 0.3s;}
+.read-more:hover{background:#D4AF37; color:#000; transform:translateX(5px);}
+.hero-small{position:relative; overflow:hidden;}
+.hero-small::after{content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:linear-gradient(45deg, transparent 30%, rgba(212,175,55,0.1) 50%, transparent 70%); animation:shine 3s infinite;}
+@keyframes shine{0%{transform:translateX(-100%)} 100%{transform:translateX(100%)}}
+</style>
 </head>
 <body>
     <header>
@@ -24,15 +45,50 @@
             </ul>
         </nav>
     </header>
-    <section class="hero hero-small"><h1><i class="fas fa-blog"></i> Blog</h1></section>
+    <section class="hero hero-small"><h1><i class="fas fa-blog"></i> Blog</h1><p style="margin-top:8px; opacity:0.9;">Stories from Gqeberha</p></section>
     <main>
         <div class="services-grid">
-            <article class="service-box"><i class="fas fa-seedling"></i><h3>Eastern Cape Farms</h3><p>Direct trade above fair-trade. 60% local beans.</p></article>
-            <article class="service-box"><i class="fas fa-mug-hot"></i><h3>V60 Guide</h3><p>20g coffee 300ml water 92C bloom 30 sec.</p></article>
-            <article class="service-box"><i class="fas fa-heart"></i><h3>Youth program</h3><p>Training program job placement.</p></article>
+            <article class="service-box">
+                <div class="blog-img"><i class="fas fa-seedling"></i></div>
+                <div class="blog-content">
+                    <div class="blog-meta"><span><i class="fas fa-calendar"></i> 15 Oct 2026</span><span><i class="fas fa-user"></i> Thando</span></div>
+                    <h3>Eastern Cape Farms</h3>
+                    <p>Direct trade above fair-trade. 60% local beans. We visit farms in Keiskamma, support youth farmers, pay 20% above market. Ubuntu means community.</p>
+                    <button class="read-more" onclick="alert('Full story: We partner with 8 Eastern Cape farms, roasting weekly at 123 Govan Mbeki.')">Read More <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </article>
+            <article class="service-box">
+                <div class="blog-img" style="background:linear-gradient(135deg,#8B4513,#CD853F);"><i class="fas fa-mug-hot"></i></div>
+                <div class="blog-content">
+                    <div class="blog-meta"><span><i class="fas fa-calendar"></i> 02 Nov 2026</span><span><i class="fas fa-user"></i> Noma</span></div>
+                    <h3>V60 Guide</h3>
+                    <p>20g coffee 300ml water 92C bloom 30 sec. Our Head Barista Noma shows perfect pour for students & workers 18-35.</p>
+                    <button class="read-more" onclick="alert('V60 Steps: 1) Rinse filter 2) 20g grind medium 3) Bloom 30s 4) Pour to 300ml in 2:30')">Read More <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </article>
+            <article class="service-box">
+                <div class="blog-img" style="background:linear-gradient(135deg,#D4AF37,#6F4E37);"><i class="fas fa-heart"></i></div>
+                <div class="blog-content">
+                    <div class="blog-meta"><span><i class="fas fa-calendar"></i> 20 Sep 2026</span><span><i class="fas fa-user"></i> Sipho</span></div>
+                    <h3>Youth program</h3>
+                    <p>Training program job placement. From NMU 2023 grads to training 12 youth baristas. 8 placed in Gqeberha cafes.</p>
+                    <button class="read-more" onclick="alert('Youth Program: 3 month training - roasting, latte art, customer service. Apply at shop.')">Read More <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </article>
         </div>
     </main>
-    <footer><p>&copy; 2026 Ubuntu Coffee</p></footer>
+    <footer><p>&copy; 2026 Ubuntu Coffee - 123 Govan Mbeki</p></footer>
     <script src="../js/main.js"></script>
+    <script>
+    // scroll animation 
+    const observer = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+            if(entry.isIntersecting){
+                entry.target.style.animationPlayState='running';
+            }
+        });
+    }, {threshold:0.1});
+    document.querySelectorAll('.service-box').forEach(box=>observer.observe(box));
+    </script>
 </body>
 </html>

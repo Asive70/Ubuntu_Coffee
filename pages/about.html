@@ -12,6 +12,16 @@
 #imgModal img{max-width:90%; max-height:90%; border-radius:8px;}
 #imgModal .close{position:absolute; top:15px; right:25px; color:#fff; font-size:40px; cursor:pointer;}
 .team-card img{cursor:pointer;}
+/* my animations */
+@keyframes fadeUp{from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)}}
+.card{animation:fadeUp 0.6s ease forwards;}
+.team-card{animation:fadeUp 0.6s ease forwards; opacity:0; transition:all 0.4s;}
+.team-card:nth-child(1){animation-delay:0.1s} .team-card:nth-child(2){animation-delay:0.2s} .team-card:nth-child(3){animation-delay:0.3s} .team-card:nth-child(4){animation-delay:0.4s}
+.team-card:hover{transform:translateY(-8px); box-shadow:0 15px 30px rgba(0,0,0,0.12);}
+/* careers style */
+.career-card{background:#fff; border-radius:14px; padding:18px; margin:12px; box-shadow:0 6px 20px rgba(0,0,0,0.06); transition:all 0.3s; border-left:4px solid #D4AF37; animation:fadeUp 0.5s ease forwards; opacity:0;}
+.career-card:hover{transform:translateY(-5px);}
+.badge{display:inline-block; background:#6F4E37; color:#fff; padding:5px 12px; border-radius:20px; margin:4px; font-size:0.85rem;}
 </style>
 </head>
 <body>
@@ -84,9 +94,65 @@
 
 </div>
 </div>
+
+<!-- careers -->
+<section style="padding:30px 15px; background:#FFF8E1; margin-top:30px; border-radius:16px;">
+<h2 style="text-align:center; color:#6F4E37;"><i class="fas fa-briefcase"></i> Careers - Join Us</h2>
+<p style="text-align:center; max-width:650px; margin:0 auto 20px;">We hiring at 123 Govan Mbeki. Ubuntu team. Free coffee, training, good vibes.</p>
+
+<div style="text-align:center; margin-bottom:15px;">
+<span class="badge">Free coffee</span>
+<span class="badge">Training</span>
+<span class="badge">Flexible shifts</span>
+<span class="badge">Central</span>
+</div>
+
+<div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:15px; max-width:1000px; margin:0 auto;">
+<div class="career-card" style="animation-delay:0.1s">
+<h3><i class="fas fa-mug-hot"></i> Barista - Full Time</h3>
+<p>R6500 - R8500 | Gqeberha<br>Need 1yr exp, love people</p>
+<!--  apply btn -->
+<button onclick="showJob('Barista - Full Time')" style="background:#6F4E37; color:#fff; border:none; padding:7px 16px; border-radius:20px; cursor:pointer;">Apply</button>
+</div>
+<div class="career-card" style="animation-delay:0.2s">
+<h3><i class="fas fa-cookie"></i> Kitchen Assistant</h3>
+<p>R4000 - R5500 | Part time<br>Morning, rusks baking</p>
+<button onclick="showJob('Kitchen Assistant')" style="background:#6F4E37; color:#fff; border:none; padding:7px 16px; border-radius:20px; cursor:pointer;">Apply</button>
+</div>
+<div class="career-card" style="animation-delay:0.3s">
+<h3><i class="fas fa-truck"></i> Delivery & Events</h3>
+<p>Casual | 50-180 guests catering<br>Need licence</p>
+<button onclick="showJob('Delivery & Events')" style="background:#6F4E37; color:#fff; border:none; padding:7px 16px; border-radius:20px; cursor:pointer;">Apply</button>
+</div>
+</div>
+
+<!-- career form - hidden first -->
+<div id="careerForm" style="display:none; max-width:500px; margin:25px auto; background:#fff; padding:20px; border-radius:14px; border:1px solid #eee;">
+<h3 style="color:#6F4E37; text-align:center;">Apply for <span id="jobName">Job</span></h3>
+<form id="applyForm" enctype="multipart/form-data">
+<input type="hidden" name="access_key" value="eed9e7b6-6e5d-4cd7-9d50-8680ab37b2c6"> <!-- my web3 key -->
+<input type="hidden" name="subject" value="Job Application - Ubuntu">
+<input type="hidden" name="from_name" value="Ubuntu Careers">
+<input type="hidden" name="job" id="jobInput" value="">
+<input type="text" name="name" required placeholder="Full name" style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1.5px solid #ddd;">
+<input type="email" name="email" required placeholder="Email" style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1.5px solid #ddd;">
+<input type="tel" name="phone" placeholder="Phone - 041..." style="width:100%; padding:10px; margin-bottom:10px; border-radius:8px; border:1.5px solid #ddd;">
+
+<!--file upload -->
+<label style="font-weight:600; color:#6F4E37; font-size:0.9rem;"><i class="fas fa-file"></i> Upload CV / ID (pdf, doc, jpg)</label>
+<input type="file" name="attachment" id="cvFile" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="width:100%; padding:8px; margin:6px 0 10px; border:1.5px dashed #D4AF37; border-radius:8px; background:#FFF8E1; cursor:pointer;">
+<p id="fileName" style="font-size:0.8rem; color:#888; margin:0 0 10px;"></p>
+
+<textarea name="message" required placeholder="Why you want to join?" style="width:100%; padding:10px; border-radius:8px; border:1.5px solid #ddd; min-height:80px;"></textarea>
+<button type="submit" id="applyBtn" style="width:100%; padding:11px; background:#6F4E37; color:#fff; border:none; border-radius:8px; margin-top:10px; cursor:pointer;">Send Application</button>
+<p id="applyResult" style="text-align:center; margin-top:8px;"></p>
+</form>
+</div>
+</section>
+
 </main>
 
-<!--  only picture, no caption -->
+<!-- only picture, no caption -->
 <div id="imgModal" onclick="closePic()">
 <span class="close" onclick="closePic()">&times;</span>
 <img id="modalImg" src="" alt="picture only">
@@ -104,6 +170,34 @@ function closePic(){
   document.getElementById('imgModal').style.display = 'none';
 }
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePic(); });
+
+// career func
+function showJob(title){
+  document.getElementById('careerForm').style.display='block';
+  document.getElementById('jobInput').value=title;
+  document.getElementById('jobName').textContent=title;
+  window.scrollTo(0, document.getElementById('careerForm').offsetTop - 80); // scroll down
+}
+
+
+document.getElementById('applyForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  var btn=document.getElementById('applyBtn');
+  var res=document.getElementById('applyResult');
+  btn.textContent='Sending...'; // wait
+  btn.disabled=true;
+  var data=Object.fromEntries(new FormData(this));
+  try{
+    var r=await fetch('https://api.web3forms.com/submit',{method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(data)});
+    var j=await r.json();
+    if(j.success){
+      res.textContent='Sent!'; 
+      window.location.href='./thankyou.html'; // goes to thanks page
+    } else res.textContent='Failed';
+  }catch{ res.textContent='Network error'; }
+  btn.textContent='Send Application';
+  btn.disabled=false;
+});
 </script>
 </body>
 </html>

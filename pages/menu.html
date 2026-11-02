@@ -7,20 +7,44 @@
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-.filter-btn{padding:8px 18px;margin:5px;border:1px solid #6F4E37;background:#fff;color:#6F4E37;border-radius:25px;cursor:pointer}
-.filter-btn.active{background:#6F4E37;color:#fff}
-.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px;padding:20px}
-.shop-card{background:#fff;padding:15px;border-radius:12px;border:1px solid #ddd;text-align:center}
-.shop-card img{width:100%;height:160px;object-fit:cover;border-radius:8px;cursor:pointer}
-#cartCount{background:#D4AF37;color:#000;padding:2px 7px;border-radius:50%;font-weight:bold}
-.cart-box{background:#fff; margin:20px; padding:20px; border-radius:12px; border:2px solid #D4AF37;}
-.cart-item{display:flex; justify-content:space-between; align-items:center; padding:10px; border-bottom:1px solid #eee}
-.remove-btn{background:#c0392b;color:#fff;border:none;padding:4px 8px;border-radius:4px;cursor:pointer}
-.qty-btn{background:#6F4E37;color:#fff;border:none;padding:2px 7px;border-radius:3px;cursor:pointer;margin:0 2px}
-/*  picture modal */
-#imgModal{display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center;}
-#imgModal img{max-width:90%; max-height:90%; border-radius:8px;}
-#imgModal .close{position:absolute; top:15px; right:25px; color:#fff; font-size:40px; cursor:pointer;}
+    
+/* added animation*/
+.filter-btn{padding:9px 20px;margin:5px;border:1.5px solid #6F4E37;background:#fff;color:#6F4E37;border-radius:25px;cursor:pointer; transition:all 0.3s; font-weight:600;}
+.filter-btn:hover{transform:translateY(-2px); box-shadow:0 5px 15px rgba(111,78,55,0.2);}
+.filter-btn.active{background:#6F4E37;color:#fff; transform:scale(1.05); box-shadow:0 6px 18px rgba(111,78,55,0.3);}
+.shop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px;padding:25px}
+.shop-card{background:#fff;padding:15px;border-radius:16px;border:1px solid #eee;text-align:center; transition:all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); animation:fadeUp 0.6s ease forwards; opacity:0; box-shadow:0 4px 12px rgba(0,0,0,0.05);}
+.shop-card:nth-child(1){animation-delay:0.05s} .shop-card:nth-child(2){animation-delay:0.1s} .shop-card:nth-child(3){animation-delay:0.15s} .shop-card:nth-child(4){animation-delay:0.2s} .shop-card:nth-child(5){animation-delay:0.25s} .shop-card:nth-child(6){animation-delay:0.3s} .shop-card:nth-child(7){animation-delay:0.35s} .shop-card:nth-child(8){animation-delay:0.4s} .shop-card:nth-child(9){animation-delay:0.45s}
+@keyframes fadeUp{from{opacity:0; transform:translateY(20px) scale(0.95)} to{opacity:1; transform:translateY(0) scale(1)}}
+.shop-card:hover{transform:translateY(-10px) scale(1.02); box-shadow:0 18px 35px rgba(111,78,55,0.18); border-color:#D4AF37;}
+.shop-card img{width:100%;height:165px;object-fit:cover;border-radius:12px;cursor:pointer; transition:all 0.5s;}
+.shop-card:hover img{transform:scale(1.05); filter:brightness(1.05);}
+.shop-card h3{margin:12px 0 5px; color:#6F4E37; transition:color 0.3s;}
+.shop-card:hover h3{color:#D4AF37;}
+.price{font-weight:bold; color:#D4AF37; font-size:1.15rem; margin:6px 0;}
+#cartCount{background:#D4AF37;color:#000;padding:2px 8px;border-radius:50%;font-weight:bold; animation:pulse 2s infinite;}
+@keyframes pulse{0%{transform:scale(1)} 50%{transform:scale(1.1)} 100%{transform:scale(1)}}
+.cart-box{background:#fff; margin:20px; padding:20px; border-radius:16px; border:2px solid #D4AF37; animation:slideDown 0.6s ease; box-shadow:0 8px 25px rgba(212,175,55,0.12);}
+@keyframes slideDown{from{opacity:0; transform:translateY(-20px)} to{opacity:1; transform:translateY(0)}}
+.cart-item{display:flex; justify-content:space-between; align-items:center; padding:12px; border-bottom:1px solid #eee; animation:fadeIn 0.3s ease; transition:all 0.2s;}
+.cart-item:hover{background:#FFF8E1; border-radius:8px;}
+@keyframes fadeIn{from{opacity:0} to{opacity:1}}
+.remove-btn{background:#c0392b;color:#fff;border:none;padding:5px 10px;border-radius:6px;cursor:pointer; transition:all 0.2s;}
+.remove-btn:hover{transform:scale(1.05); background:#e74c3c;}
+.qty-btn{background:#6F4E37;color:#fff;border:none;padding:3px 9px;border-radius:5px;cursor:pointer;margin:0 3px; transition:all 0.2s;}
+.qty-btn:hover{background:#8B5A2B; transform:scale(1.1);}
+#productSearch{transition:all 0.3s; border:2px solid transparent;}
+#productSearch:focus{transform:scale(1.02); border-color:#D4AF37; box-shadow:0 0 0 4px rgba(212,175,55,0.15); outline:none;}
+/* picture only modal */
+#imgModal{display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background:rgba(0,0,0,0.9); justify-content:center; align-items:center; animation:modalIn 0.3s ease;}
+@keyframes modalIn{from{opacity:0} to{opacity:1}}
+#imgModal img{max-width:90%; max-height:90%; border-radius:12px; animation:zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);}
+@keyframes zoomIn{from{transform:scale(0.7)} to{transform:scale(1)}}
+#imgModal .close{position:absolute; top:15px; right:25px; color:#fff; font-size:42px; cursor:pointer; transition:all 0.2s;}
+#imgModal .close:hover{transform:rotate(90deg) scale(1.1); color:#D4AF37;}
+.hero-animate{position:relative; overflow:hidden;}
+.hero-animate::before{content:''; position:absolute; top:-50%; left:-50%; width:200%; height:200%; background:radial-gradient(circle, rgba(212,175,55,0.08) 0%, transparent 60%); animation:rotateGlow 8s linear infinite;}
+@keyframes rotateGlow{from{transform:rotate(0deg)} to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -28,49 +52,51 @@
 <nav>
 <div class="logo"><i class="fas fa-mug-hot"></i> Ubuntu Coffee</div>
 <ul>
-<li><a href="../index.html">Home</a></li>
-<li><a href="menu.html" class="active">Menu (<span id="cartCount">0</span>)</a></li>
-<li><a href="book.html">Book</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a href="enquiry.html">Enquiry</a></li>
-</ul>
+ <li><a href="../index.html"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="./menu.html"><i class="fas fa-coffee"></i> Menu (<span id="cartCount">0</span>)</a></li>
+                <li><a href="./services.html" class="active"><i class="fas fa-concierge-bell"></i> Services</a></li>
+                <li><a href="./book.html"><i class="fas fa-calendar-check"></i> Book</a></li>
+                <li><a href="./about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="./blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+                <li><a href="./contact.html"><i class="fas fa-phone"></i> Contact</a></li>
+                <li><a href="./enquiry.html"><i class="fas fa-envelope"></i> Enquiry</a></li>
+            </ul>
 </nav>
 </header>
 
-<section style="text-align:center;padding:20px;background:#6F4E37;color:#fff;">
-<h1>Our Menu</h1>
-<input type="text" id="productSearch" placeholder="Search..." style="padding:12px 18px; border-radius:25px; width:80%; max-width:350px; margin-top:10px;">
-<div style="margin-top:10px;">
+<section class="hero-animate" style="text-align:center;padding:28px;background:linear-gradient(135deg,#6F4E37,#8B5A2B);color:#fff; position:relative;">
+<h1 style="position:relative; animation:fadeUp 0.6s ease;">☕ Our Menu</h1>
+<input type="text" id="productSearch" placeholder="🔍 Search coffee, rusks..." style="padding:13px 20px; border-radius:25px; width:80%; max-width:380px; margin-top:12px; position:relative;">
+<div style="margin-top:14px; position:relative;">
 <button class="filter-btn active" onclick="filterMe('all',this)">All</button>
-<button class="filter-btn" onclick="filterMe('coffee',this)">Coffee Beans</button>
-<button class="filter-btn" onclick="filterMe('hot',this)">Hot Drinks</button>
-<button class="filter-btn" onclick="filterMe('cold',this)">Cold Brew</button>
-<button class="filter-btn" onclick="filterMe('warm',this)">Warm</button>
+<button class="filter-btn" onclick="filterMe('coffee',this)"><i class="fas fa-seedling"></i> Coffee Beans</button>
+<button class="filter-btn" onclick="filterMe('hot',this)"><i class="fas fa-mug-hot"></i> Hot Drinks</button>
+<button class="filter-btn" onclick="filterMe('cold',this)"><i class="fas fa-snowflake"></i> Cold Brew</button>
+<button class="filter-btn" onclick="filterMe('warm',this)"><i class="fas fa-cookie"></i> Warm</button>
 </div>
 </section>
 
 <!-- CART -->
 <div class="cart-box">
-<h3><i class="fas fa-shopping-cart"></i> My Cart - <span id="cartTotalTop">R0.00</span> <button onclick="clearCart()" style="float:right; background:#c0392b; color:#fff; border:none; padding:5px 10px; border-radius:5px; cursor:pointer;">Clear</button></h3>
-<div id="cartList"><p>Cart empty - add items below</p></div>
-<p style="margin-top:10px;"><strong>Total: <span id="cartTotal">R0.00</span></strong></p>
-<button onclick="checkout()" style="width:100%; padding:10px; background:#D4AF37; border:none; border-radius:6px; font-weight:bold; cursor:pointer; margin-top:10px;">Checkout via Email</button>
+<h3><i class="fas fa-shopping-cart"></i> My Cart - <span id="cartTotalTop">R0.00</span> <button onclick="clearCart()" style="float:right; background:#c0392b; color:#fff; border:none; padding:6px 12px; border-radius:8px; cursor:pointer; transition:all 0.2s;">Clear</button></h3>
+<div id="cartList"><p>🛒 Cart empty - add items below</p></div>
+<p style="margin-top:12px;"><strong>Total: <span id="cartTotal">R0.00</span></strong></p>
+<button onclick="checkout()" style="width:100%; padding:12px; background:linear-gradient(135deg,#D4AF37,#FFD700); border:none; border-radius:10px; font-weight:bold; cursor:pointer; margin-top:12px; transition:all 0.3s;">Checkout via Email <i class="fas fa-arrow-right"></i></button>
 </div>
 
 <div class="shop-grid">
-<div class="shop-card" data-category="coffee" data-name="Ubuntu House Blend"><img src="../assets/images/menu/ubuntu_house_blend.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Ubuntu House Blend</h3><p>Medium chocolate caramel 250g</p><div class="price">R95</div><button onclick="addToCart(this,'Ubuntu House Blend',95)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
-<div class="shop-card" data-category="coffee" data-name="Ethiopian Single Origin"><img src="../assets/images/menu/ethiopian.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Ethiopian Single Origin</h3><p>Light fruity floral 250g</p><div class="price">R120</div><button onclick="addToCart(this,'Ethiopian Single Origin',120)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
-<div class="shop-card" data-category="coffee" data-name="Kenyan AA Dark"><img src="../assets/images/menu/kenyan.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Kenyan AA Dark</h3><p>Dark bold smoky 250g</p><div class="price">R110</div><button onclick="addToCart(this,'Kenyan AA Dark',110)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
-<div class="shop-card" data-category="coffee" data-name="Decaf House"><img src="../assets/images/menu/decaf.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Decaf House</h3><p>Swiss water decaf 250g</p><div class="price">R105</div><button onclick="addToCart(this,'Decaf House',105)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
-<div class="shop-card" data-category="cold" data-name="Cold Brew Bottle"><img src="../assets/images/menu/cold_brew.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Cold Brew Bottle</h3><p>500ml ready drink</p><div class="price">R45</div><button onclick="addToCart(this,'Cold Brew Bottle',45)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
-<div class="shop-card" data-category="hot" data-name="Cappuccino"><img src="../assets/images/menu/cappuccino.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Cappuccino</h3><p>Double shot milk foam</p><div class="price">R38</div><button onclick="addToCart(this,'Cappuccino',38)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
-<div class="shop-card" data-category="hot" data-name="Latte"><img src="../assets/images/menu/latte.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Latte</h3><p>Espresso creamy milk</p><div class="price">R42</div><button onclick="addToCart(this,'Latte',42)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
-<div class="shop-card" data-category="hot" data-name="Americano"><img src="../assets/images/menu/americano.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Americano</h3><p>Black coffee 2 shots</p><div class="price">R32</div><button onclick="addToCart(this,'Americano',32)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
-<div class="shop-card" data-category="warm" data-name="Buttermilk Rusks"><img src="../assets/images/buttermilk-rusks.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Buttermilk Rusks</h3><p>Warm, delicious Rusks</p><div class="price">R45</div><button onclick="addToCart(this,'Buttermilk Rusks',45)" style="width:100%;padding:8px;background:#6F4E37;color:#fff;border:none;border-radius:6px;cursor:pointer;margin-top:8px;">Add to Cart</button></div>
+<div class="shop-card" data-category="coffee" data-name="Ubuntu House Blend"><img src="../assets/images/menu/ubuntu_house_blend.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Ubuntu House Blend</h3><p>Medium chocolate caramel 250g</p><div class="price">R95</div><button onclick="addToCart(this,'Ubuntu House Blend',95)" style="width:100%;padding:10px;background:#6F4E37;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:8px; transition:all 0.3s; font-weight:600;">Add to Cart</button></div>
+<div class="shop-card" data-category="coffee" data-name="Ethiopian Single Origin"><img src="../assets/images/menu/ethiopian.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Ethiopian Single Origin</h3><p>Light fruity floral 250g</p><div class="price">R120</div><button onclick="addToCart(this,'Ethiopian Single Origin',120)" style="width:100%;padding:10px;background:#6F4E37;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:8px; transition:all 0.3s; font-weight:600;">Add to Cart</button></div>
+<div class="shop-card" data-category="coffee" data-name="Kenyan AA Dark"><img src="../assets/images/menu/kenyan.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Kenyan AA Dark</h3><p>Dark bold smoky 250g</p><div class="price">R110</div><button onclick="addToCart(this,'Kenyan AA Dark',110)" style="width:100%;padding:10px;background:#6F4E37;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:8px; transition:all 0.3s; font-weight:600;">Add to Cart</button></div>
+<div class="shop-card" data-category="coffee" data-name="Decaf House"><img src="../assets/images/menu/decaf.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Decaf House</h3><p>Swiss water decaf 250g</p><div class="price">R105</div><button onclick="addToCart(this,'Decaf House',105)" style="width:100%;padding:10px;background:#6F4E37;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:8px; transition:all 0.3s; font-weight:600;">Add to Cart</button></div>
+<div class="shop-card" data-category="cold" data-name="Cold Brew Bottle"><img src="../assets/images/menu/cold_brew.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Cold Brew Bottle</h3><p>500ml ready drink</p><div class="price">R45</div><button onclick="addToCart(this,'Cold Brew Bottle',45)" style="width:100%;padding:10px;background:#6F4E37;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:8px; transition:all 0.3s; font-weight:600;">Add to Cart</button></div>
+<div class="shop-card" data-category="hot" data-name="Cappuccino"><img src="../assets/images/menu/cappuccino.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Cappuccino</h3><p>Double shot milk foam</p><div class="price">R38</div><button onclick="addToCart(this,'Cappuccino',38)" style="width:100%;padding:10px;background:#6F4E37;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:8px; transition:all 0.3s; font-weight:600;">Add to Cart</button></div>
+<div class="shop-card" data-category="hot" data-name="Latte"><img src="../assets/images/menu/latte.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Latte</h3><p>Espresso creamy milk</p><div class="price">R42</div><button onclick="addToCart(this,'Latte',42)" style="width:100%;padding:10px;background:#6F4E37;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:8px; transition:all 0.3s; font-weight:600;">Add to Cart</button></div>
+<div class="shop-card" data-category="hot" data-name="Americano"><img src="../assets/images/menu/americano.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Americano</h3><p>Black coffee 2 shots</p><div class="price">R32</div><button onclick="addToCart(this,'Americano',32)" style="width:100%;padding:10px;background:#6F4E37;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:8px; transition:all 0.3s; font-weight:600;">Add to Cart</button></div>
+<div class="shop-card" data-category="warm" data-name="Buttermilk Rusks"><img src="../assets/images/buttermilk-rusks.jpg" alt="" onclick="openOnlyPic(this.src)"><h3>Buttermilk Rusks</h3><p>Warm, delicious Rusks</p><div class="price">R45</div><button onclick="addToCart(this,'Buttermilk Rusks',45)" style="width:100%;padding:10px;background:#6F4E37;color:#fff;border:none;border-radius:10px;cursor:pointer;margin-top:8px; transition:all 0.3s; font-weight:600;">Add to Cart</button></div>
 </div>
 
-<!-- modal - ONLY picture -->
+<!-- picture only modal -->
 <div id="imgModal" onclick="closePic()">
 <span class="close" onclick="closePic()">&times;</span>
 <img id="modalImg" src="" alt="picture only">
@@ -79,102 +105,37 @@
 <footer style="text-align:center;padding:20px;background:#6F4E37;color:#fff;">&copy; 2026 Ubuntu Coffee</footer>
 
 <script>
-
 function getCart(){return JSON.parse(localStorage.getItem('ubuntuCart')||'[]');}
 function saveCart(c){localStorage.setItem('ubuntuCart',JSON.stringify(c));updateCount();renderCart();}
-
-function updateCount(){
-  var cart=getCart();
-  var count=cart.reduce((s,i)=>s+i.qty,0);
-  document.querySelectorAll('#cartCount').forEach(e=>e.textContent=count);
-}
-
+function updateCount(){var cart=getCart();var count=cart.reduce((s,i)=>s+i.qty,0);document.querySelectorAll('#cartCount').forEach(e=>e.textContent=count);}
 function renderCart(){
-  var cart=getCart();
-  var list=document.getElementById('cartList');
-  var total=0;
-  if(cart.length===0){
-    list.innerHTML='<p>Cart empty - add items below</p>';
-  } else {
-    var html='';
-    cart.forEach((item, idx)=>{
-      total+=item.price*item.qty;
-      html+=`<div class="cart-item">
-        <div><strong>${item.name}</strong><br>R${item.price} x ${item.qty} = R${(item.price*item.qty).toFixed(2)}</div>
-        <div>
-          <button class="qty-btn" onclick="changeQty(${idx},-1)">-</button>
-          <span>${item.qty}</span>
-          <button class="qty-btn" onclick="changeQty(${idx},1)">+</button>
-          <button class="remove-btn" onclick="removeItem(${idx})"><i class="fas fa-trash"></i> Remove</button>
-        </div>
-      </div>`;
-    });
-    list.innerHTML=html;
-  }
-  document.getElementById('cartTotal').textContent='R'+total.toFixed(2);
-  document.getElementById('cartTotalTop').textContent='R'+total.toFixed(2);
+  var cart=getCart(); var list=document.getElementById('cartList'); var total=0;
+  if(cart.length===0){list.innerHTML='<p>🛒 Cart empty - add items below</p>';}
+  else {var html=''; cart.forEach((item, idx)=>{total+=item.price*item.qty; html+=`<div class="cart-item"><div><strong>${item.name}</strong><br>R${item.price} x ${item.qty} = R${(item.price*item.qty).toFixed(2)}</div><div><button class="qty-btn" onclick="changeQty(${idx},-1)">-</button><span style="margin:0 6px; font-weight:bold;">${item.qty}</span><button class="qty-btn" onclick="changeQty(${idx},1)">+</button><button class="remove-btn" onclick="removeItem(${idx})"><i class="fas fa-trash"></i></button></div></div>`;}); list.innerHTML=html;}
+  document.getElementById('cartTotal').textContent='R'+total.toFixed(2); document.getElementById('cartTotalTop').textContent='R'+total.toFixed(2);
 }
-
 function addToCart(btn,name,price){
-  var cart=getCart();
-  var found=cart.find(i=>i.name===name);
-  if(found) found.qty++; else cart.push({name:name,price:price,qty:1});
-  saveCart(cart);
-  var old=btn.innerHTML; btn.innerHTML='Added!'; btn.style.background='#2ecc71';
-  setTimeout(()=>{btn.innerHTML=old; btn.style.background='#6F4E37';},800);
+  var cart=getCart(); var found=cart.find(i=>i.name===name); if(found) found.qty++; else cart.push({name:name,price:price,qty:1}); saveCart(cart);
+  var old=btn.innerHTML; btn.innerHTML='✅ Added!'; btn.style.background='#2ecc71'; btn.style.transform='scale(1.05)';
+  setTimeout(()=>{btn.innerHTML=old; btn.style.background='#6F4E37'; btn.style.transform='scale(1)';},900);
 }
-
-function changeQty(idx,delta){
-  var cart=getCart();
-  cart[idx].qty+=delta;
-  if(cart[idx].qty<=0) cart.splice(idx,1);
-  saveCart(cart);
-}
-
-function removeItem(idx){
-  var cart=getCart();
-  cart.splice(idx,1);
-  saveCart(cart);
-}
-
-function clearCart(){
-  if(confirm('Clear cart?')){localStorage.removeItem('ubuntuCart');updateCount();renderCart();}
-}
-
+function changeQty(idx,delta){var cart=getCart(); cart[idx].qty+=delta; if(cart[idx].qty<=0) cart.splice(idx,1); saveCart(cart);}
+function removeItem(idx){var cart=getCart(); cart.splice(idx,1); saveCart(cart);}
+function clearCart(){if(confirm('Clear cart?')){localStorage.removeItem('ubuntuCart');updateCount();renderCart();}}
 function filterMe(cat,btnClicked){
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btnClicked.classList.add('active');
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btnClicked.classList.add('active');
   document.querySelectorAll('.shop-card').forEach(c=>{
-    c.style.display=(cat==='all'||c.dataset.category===cat)?'':'none';
+    if(cat==='all'||c.dataset.category===cat){c.style.display=''; c.style.animation='fadeUp 0.5s ease forwards';} else c.style.display='none';
   });
 }
-
 document.getElementById('productSearch').addEventListener('input',function(){
   var term=this.value.toLowerCase();
-  document.querySelectorAll('.shop-card').forEach(c=>{
-    c.style.display=c.dataset.name.toLowerCase().includes(term)?'':'none';
-  });
+  document.querySelectorAll('.shop-card').forEach(c=>{c.style.display=c.dataset.name.toLowerCase().includes(term)?'':'none';});
 });
-
-function checkout(){
-  var cart=getCart();
-  if(cart.length===0){alert('Cart empty');return;}
-  var body='ORDER\n';
-  var total=0;
-  cart.forEach(i=>{body+=`${i.name} x${i.qty} = R${(i.price*i.qty).toFixed(2)}\n`; total+=i.price*i.qty;});
-  body+=`\nTOTAL: R${total.toFixed(2)}`;
-  window.location.href=`mailto: asivemsimango@gmail.com?subject=Order&body=${encodeURIComponent(body)}`;
-}
-
-function openOnlyPic(src){
-  document.getElementById('modalImg').src = src;
-  document.getElementById('imgModal').style.display = 'flex';
-}
-function closePic(){
-  document.getElementById('imgModal').style.display = 'none';
-}
+function checkout(){var cart=getCart(); if(cart.length===0){alert('Cart empty');return;} var body='ORDER\n'; var total=0; cart.forEach(i=>{body+=`${i.name} x${i.qty} = R${(i.price*i.qty).toFixed(2)}\n`; total+=i.price*i.qty;}); body+=`\nTOTAL: R${total.toFixed(2)}`; window.location.href=`mailto:asivemsimango@gmail.com?subject=Order&body=${encodeURIComponent(body)}`;}
+function openOnlyPic(src){document.getElementById('modalImg').src=src; document.getElementById('imgModal').style.display='flex';}
+function closePic(){document.getElementById('imgModal').style.display='none';}
 document.addEventListener('keydown', function(e){ if(e.key==='Escape') closePic(); });
-
 updateCount(); renderCart();
 </script>
 </body>
