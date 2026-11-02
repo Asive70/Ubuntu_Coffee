@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://asive70.github.io/Ubuntu_Coffee/sitemap.xml
