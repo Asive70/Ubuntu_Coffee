@@ -566,25 +566,32 @@ header ul a.active{border-bottom:2px solid #D4AF37; font-weight:bold;}
 #cartCount{background:#D4AF37; color:#000; border-radius:50%; padding:2px 7px; font-size:0.8em; font-weight:bold;}
 input, select, textarea{width:100%; padding:10px; margin:8px 0; border:1px solid #ccc; border-radius:6px;}
 footer{text-align:center; padding:20px; background:#6F4E37; color:#fff; margin-top:
-    
+
+
 @media only screen and (max-width: 600px) {
-  /* Book Now + Today's Special */
-  a[href*="book"], a[href*="Book"], .btn, button {
+  .hero-text-middle h1 { font-size: 28px !important; }
+  .hero-text-middle h2 { font-size: 16px !important; margin-bottom: 18px !important; }
+  
+  .hero-text-middle {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 8px !important;
+  }
+  
+  .btn-gold, .btn {
     padding: 8px 14px !important;
-    font-size: 13px !important;
-    border-radius: 25px !important;
+    font-size: 12px !important;
+    line-height: 1.2 !important;
+  }
+
+  .nav-on-image {
+    padding: 12px 8px !important;
+    gap: 6px !important;
   }
   
-  .hero-section, header {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px !important;
-  }
-  
-  /* Fixes top nav  */
-  nav, .nav-links, .navbar {
-    font-size: 13px !important;
-    gap: 8px !important;
+  .nav-on-image a {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
   }
 }
